@@ -50,6 +50,7 @@ const MatrixInput: React.FC<MatrixInputProps> = ({ onSubmit }) => {
             value={columns}
             onChange={(e) => setColumns(Number.parseInt(e.target.value))}
           />
+          <p> </p>
           <Button
             variant="contained"
             color="primary"
@@ -66,9 +67,9 @@ const MatrixInput: React.FC<MatrixInputProps> = ({ onSubmit }) => {
           </Typography>
           <Grid container spacing={2}>
             {matrix.map((row, rowIndex) => (
-              <Grid container item spacing={2} key={`row-${rowIndex}`}>
+              <Grid container item spacing={2} key={`row-${rowIndex}-${Math.random()}`}>
                 {row.map((value, colIndex) => (
-                  <Grid item key={`${rowIndex}-${colIndex}`}>
+                  <Grid item key={`col-${rowIndex}-${colIndex}-${Math.random()}`}>
                     <TextField
                       type="number"
                       value={value}
