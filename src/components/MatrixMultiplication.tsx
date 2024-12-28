@@ -37,6 +37,8 @@ const MatrixMultiplication: React.FC = () => {
         Enter values for Matrix 1:
       </Typography>
       <MatrixInput onSubmit={handleMatrix1Submit} />
+      <p> </p>
+      <p> </p>
       <Typography variant="h6" gutterBottom>
         Enter values for Matrix 2:
       </Typography>
@@ -50,10 +52,33 @@ const MatrixMultiplication: React.FC = () => {
       >
         Multiply
       </Button>
+      <p> </p>
+      <p> </p>
       {result && (
-        <div>
+        <div style={{
+          position: 'fixed',
+          top: '40%',
+          right: '250px',
+          backgroundColor: 'white',
+          padding: '20px',
+          fontSize: '24px',
+          border: '1px solid black',
+          borderRadius: '10px',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)'
+        }}>
           <Typography variant="h6">Result Matrix:</Typography>
-          <pre>{JSON.stringify(result, null, 2)}</pre>
+          <pre>
+            <code style={{ fontSize: '24px' }}>
+            
+              {result.map((row) => (
+                <div key={row.join('-')}>
+                  [{row.join(', ')}]
+                  <br />
+                </div>
+              ))}
+            
+            </code>
+          </pre>
         </div>
       )}
     </Container>

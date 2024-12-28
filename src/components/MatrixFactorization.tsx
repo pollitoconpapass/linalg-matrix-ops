@@ -23,13 +23,55 @@ const MatrixFactorization: React.FC = () => {
       </Typography>
       <MatrixInput onSubmit={handleMatrixSubmit} />
       {result && (
-        <div>
+        <div style={{
+          position: 'absolute',
+          top: '60%',
+          left: '400px',
+          backgroundColor: 'white',
+          padding: '20px',
+          fontSize: '24px',
+          border: '1px solid black',
+          borderRadius: '10px',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)'
+        }}>
+
           <Typography variant="h6">U Matrix:</Typography>
-          <pre>{JSON.stringify(result.U, null, 2)}</pre>
+          <pre>
+            <code style={{ fontSize: '24px' }}> 
+              {result.U.map((row) => (
+                <div key={row.join('-')}>
+                  [{row.join(', ')}]
+                  <br />
+                </div>
+              ))} 
+            </code>
+          </pre>
+
+
           <Typography variant="h6">S Vector:</Typography>
-          <pre>{JSON.stringify(result.S, null, 2)}</pre>
+          <pre>
+            <code style={{ fontSize: '24px' }}> 
+              {result.S.map((row) => (
+                <div key={row}>
+                  [{row}]
+                  <br />
+                </div>
+              ))} 
+            </code>
+          </pre>
+
+
           <Typography variant="h6">VT Matrix:</Typography>
-          <pre>{JSON.stringify(result.VT, null, 2)}</pre>
+          <pre>
+            <code style={{ fontSize: '24px' }}> 
+              {result.VT.map((row) => (
+                <div key={row.join('-')}>
+                  [{row.join(', ')}]
+                  <br />
+                </div>
+              ))} 
+            </code>
+          </pre>
         </div>
       )}
     </Container>
